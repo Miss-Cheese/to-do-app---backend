@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         render json: users
     end
 
-    def create
+    def login
         user = User.find_or_create_by(username: params[:username])
         render json: user
     end
@@ -15,4 +15,8 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def tasks
+        user = User.find(params[:id])
+        render json: user.tasks
+    end
 end
